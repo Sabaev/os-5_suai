@@ -10,6 +10,8 @@
 #include <sstream>
 #include <experimental/filesystem>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
 namespace fs = std::experimental::filesystem;
 
 const std::string listDir(const fs::path &path) {
@@ -57,26 +59,41 @@ const std::string doAction(const std::string &command) {
 int main() {
     const int port = 8080;
     const int bufSize = 513;
-    const char* SERVER_IP = "192.168.56.1";
+    const char* SERVER_IP = "192.168.1.9";
 
     try {
         WSASession Session;
         UDPSocket Socket;
-        char buffer[bufSize];
+        char commandBuffer[bufSize];
 
         Socket.Bind(port, SERVER_IP);
         while (true) {
-            sockaddr_in add = Socket.RecvFrom(buffer, sizeof(buffer));
-            std::string input(buffer);
-            std::cerr << buffer << std::endl;
+            std::cout << "=== wait for command from client ===" << std::endl;
+            sockaddr_in add = Socket.RecvFrom(commandBuffer, sizeof(commandBuffer));
+
+            // take client
+            char* clientIp = inet_ntoa(add.sin_addr);
+            std::cout << "Received data from client with ip " << clientIp << std::endl;
+
+            // load commandBuffer
+            std::string input(commandBuffer);
+            std::cout << "received command is: \"" << commandBuffer << "\"" << std::endl;
+
+            // try to execute command
             std::string res = doAction(input);
-            std::cout << res << std::endl;
+            std::cout << "result of execution is: " <<res << std::endl;
+
+            // send result to client
             Socket.SendTo(add, res.c_str(), res.size());
+
+            std::cout << "*** end working with client ***" << std::endl << std::endl;
         }
     }
     catch (std::system_error &e) {
-        std::cout << e.what();
+        std::cout << e.what() << std::endl;
     }
 
     return 0;
 }
+
+#pragma clang diagnostic pop
