@@ -1,0 +1,20 @@
+sudo: false
+language: cpp
+compiler: - g++
+os: - linux
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
+install:
+  -export CXX="g++-4.8"; fi
+script:
+  - cd fake_server
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && cd .. && make; fi
+  - ./runTest

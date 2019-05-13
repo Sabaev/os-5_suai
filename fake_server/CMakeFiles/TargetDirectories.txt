@@ -1,0 +1,3 @@
+/home/funtik/CLionProjects/ot-task4-Sabaev/fake_server/CMakeFiles/rebuild_cache.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/fake_server/CMakeFiles/lab5_fake_server.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/fake_server/CMakeFiles/edit_cache.dir

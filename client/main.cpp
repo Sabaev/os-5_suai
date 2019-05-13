@@ -11,7 +11,7 @@ static const std::string count = "count";
 static std::string ls = "ls";
 static std::string os = "os";
 static const int server_port = 8080;
-static const std::string server_ip  = "192.168.1.9";
+static const std::string server_ip  = "127.0.0.1";
 
 void checkInput(int argc, char *argv[]) {
     if (argc == 3) {
@@ -25,7 +25,7 @@ void checkInput(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
     } else {
-        std::cerr << "too many arguments";
+        std::cerr << "invalid argument count";
         exit(EXIT_FAILURE);
     }
 }
@@ -45,7 +45,8 @@ void sendCommand(const std::string &command, int sock,sockaddr_in serv_addr, con
         }
     }
 }
-int main(int argc, char **argv) {
+
+int client(int argc, char **argv){
     char buf[MAX_DATA_SIZE];
     int sock;
     struct sockaddr_in serv_addr{};
@@ -57,7 +58,7 @@ int main(int argc, char **argv) {
     }
 
     serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(8080);
+    serv_addr.sin_port = htons(server_port);
     serv_addr.sin_addr.s_addr = inet_addr(server_ip.c_str());
 
     if (argc == 2) {
@@ -71,5 +72,9 @@ int main(int argc, char **argv) {
     std::cout <<  buf << std::endl;
 
     close(sock);
+}
+
+int main(int argc, char **argv) {
+    client(argc,argv)
     return 0;
 }

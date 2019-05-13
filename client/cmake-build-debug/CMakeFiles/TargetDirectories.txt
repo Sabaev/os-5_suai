@@ -1,0 +1,3 @@
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/cmake-build-debug/CMakeFiles/lab4_client_linux.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/cmake-build-debug/CMakeFiles/edit_cache.dir

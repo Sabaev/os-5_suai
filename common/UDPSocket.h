@@ -37,7 +37,7 @@ public:
         return from;
     }
 
-    void SendTo(const std::string& address, unsigned short port, const char* buffer, int len, int flags = 0)
+    void sendTo(const std::string& address, unsigned short port, const char* buffer, int len, int flags = 0)
     {
         sockaddr_in add;
         add.sin_family = AF_INET;
@@ -47,7 +47,7 @@ public:
         if (ret < 0)
             throw std::system_error(WSAGetLastError(), std::system_category(), "sendto failed");
     }
-    void SendTo(sockaddr_in& address, const char* buffer, int len, int flags = 0)
+    void sendTo(sockaddr_in& address, const char* buffer, int len, int flags = 0)
     {
         int ret = sendto(sock, buffer, len, flags, reinterpret_cast<SOCKADDR *>(&address), sizeof(address));
         if (ret < 0)

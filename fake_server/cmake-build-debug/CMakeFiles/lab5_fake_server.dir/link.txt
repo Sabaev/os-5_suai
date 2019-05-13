@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -g   CMakeFiles/lab5_fake_server.dir/main.cpp.o  -o lab5_fake_server -lstdc++fs 
