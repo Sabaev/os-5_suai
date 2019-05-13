@@ -20,9 +20,8 @@ before install:
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 script:
+  - cd fake_server
   - mkdir build
   - cd build
-  - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && make
-  - cp ../test/task*.txt test
-  - cd test
-  - ./runTests
+  - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && cd .. && make
+  - ./lab5_fake_server
