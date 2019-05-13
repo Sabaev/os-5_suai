@@ -18,3 +18,8 @@ script:
   - cd build
   - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && cd .. && make; fi
   - ./lab5_fake_server
+  - cd client
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && cd .. && make; fi
+  - ./lab4_client_linux os
