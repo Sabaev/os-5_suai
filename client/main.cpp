@@ -75,6 +75,6 @@ int client(int argc, char **argv){
 }
 
 int main(int argc, char **argv) {
-    client(argc,argv)
+    client(argc,argv);
     return 0;
 }
