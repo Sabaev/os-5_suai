@@ -22,4 +22,4 @@ script:
   - mkdir build
   - cd build
   - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && cd .. && make; fi
-  - ./lab4_client_linux os
+  - ./lab4_client_linux ls /
