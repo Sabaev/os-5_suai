@@ -75,6 +75,9 @@
 		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/common/UDPSocket.h">
 			<Option target="lab4_client_linux"/>
 		</Unit>
+		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/test.h">
+			<Option target="lab4_client_linux"/>
+		</Unit>
 		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/client/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

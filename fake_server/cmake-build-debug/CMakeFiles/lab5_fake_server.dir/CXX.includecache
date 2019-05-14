@@ -29,8 +29,6 @@ wchar.h
 -
 sstream
 -
-experimental/filesystem
--
 sys/utsname.h
 -
 netinet/in.h

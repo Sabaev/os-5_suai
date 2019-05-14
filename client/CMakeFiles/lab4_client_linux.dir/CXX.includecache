@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/funtik/CLionProjects/ot-task4-Sabaev/client/main.cpp
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/client.h
 iostream
 -
 sys/types.h
@@ -21,4 +21,8 @@ cstring
 -
 arpa/inet.h
 -
+
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/main.cpp
+client.h
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/client.h
 
