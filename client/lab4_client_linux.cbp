@@ -66,6 +66,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/client/client.h">
+			<Option target="lab4_client_linux"/>
+		</Unit>
 		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/client/main.cpp">
 			<Option target="lab4_client_linux"/>
 		</Unit>

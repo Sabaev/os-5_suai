@@ -6,7 +6,6 @@
 #include "../common/UDPSocket_fake_server.h"
 #include <wchar.h>
 #include <sstream>
-#include <experimental/filesystem>
 #include <sys/utsname.h>
 #include <netinet/in.h>
 
@@ -14,21 +13,21 @@
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
 namespace fs = std::experimental::filesystem;
 
-const std::string listDir(const fs::path &path) {
-    if (fs::is_directory(path)) {
-        std::stringstream stringstream;
-        for (const auto &entry : fs::directory_iterator(path)) {
-            stringstream << entry.path() << std::endl;
-        }
-        return stringstream.str();
-    } else {
-        return "no dir";
-    }
-}
+//const std::string listDir(const fs::path &path) {
+//    if (fs::is_directory(path)) {
+//        std::stringstream stringstream;
+//        for (const auto &entry : fs::directory_iterator(path)) {
+//            stringstream << entry.path() << std::endl;
+//        }
+//        return stringstream.str();
+//    } else {
+//        return "no dir";
+//    }
+//}
 
-const int countDir(const fs::path &path) {
-    return std::distance(fs::directory_iterator(path), fs::directory_iterator());
-}
+//const int countDir(const fs::path &path) {
+//    return std::distance(fs::directory_iterator(path), fs::directory_iterator());
+//}
 
 const std::string osVersion() {
     utsname buf{};
@@ -42,11 +41,11 @@ const std::string doAction(const std::string &command) {
     std::string arg = command.substr(delPos + 1, command.size() - 1);
 
     if (action == "ls") {
-        return listDir(arg);
+        return "some dir";
     } else if (action == "count") {
-        return std::to_string(countDir(arg));
+        return "100";
     } else if (command == "os") {
-        return osVersion();
+        return "super os";
     } else {
         return "error command not found";
     }
