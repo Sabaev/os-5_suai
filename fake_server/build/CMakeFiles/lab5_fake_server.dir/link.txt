@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/lab5_fake_server.dir/main.cpp.o  -o lab5_fake_server 

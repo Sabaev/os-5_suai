@@ -24,4 +24,8 @@ script:
   - mkdir build
   - cd build
   - cmake -DCMAKE_CXX_COMPILER=$COMPILER .. && make
-  - ./lab5_fake_server
+  - ./lab5_fake_server &
+  - cd ../../client
+  - mkdir build && cd build
+  - cmake -DCMAKE_COMPILER=$COMPILER .. && make
+  - ./lab4_client_linux os
