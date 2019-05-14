@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/funtik/CLionProjects/ot-task4-Sabaev/client/main.cpp" "/home/funtik/CLionProjects/ot-task4-Sabaev/client/cmake-build-debug/CMakeFiles/lab4_client_linux.dir/main.cpp.o"
+  "/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/main.cpp" "/home/funtik/CLionProjects/ot-task4-Sabaev/client/cmake-build-debug/CMakeFiles/lab4_client_linux.dir/test/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

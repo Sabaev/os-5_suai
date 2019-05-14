@@ -20,21 +20,20 @@ static std::string os = "os";
 static const int server_port = 8080;
 static const std::string server_ip  = "127.0.0.1";
 
-void checkInput(int argc, char *argv[]) {
+const std::string checkInput(int argc, char *argv[]) {
     if (argc == 3) {
         if (strncmp(argv[1], ls.c_str(), ls.size()) != 0 && strncmp(argv[1], count.c_str(), count.size()) != 0) {
-            std::cerr << "invalid command";
-            exit(EXIT_FAILURE);
+            return  "invalid command";
+
         }
     } else if (argc == 2) {
         if (strncmp(argv[1], os.c_str(), os.size()) != 0) {
-            std::cerr << "invalid command";
-            exit(EXIT_FAILURE);
+            return "invalid command";
         }
     } else {
-        std::cerr << "invalid argument count";
-        exit(EXIT_FAILURE);
+        return "invalid argument count";
     }
+    return "ok";
 }
 bool isValidDataSize(const std::string &data) {
     return data.size() < MAX_DATA_SIZE;
@@ -54,11 +53,14 @@ void sendCommand(const std::string &command, int sock,sockaddr_in serv_addr, con
 }
 
 std::string client(int argc, char **argv){
-    char buf[MAX_DATA_SIZE];
+    char buf[MAX_DATA_SIZE + 1];
     int sock;
     struct sockaddr_in serv_addr{};
     sock = socket(AF_INET, SOCK_DGRAM, 0);
-    checkInput(argc, argv);
+    std::string inputCheck = checkInput(argc, argv);
+    if(inputCheck != "ok"){
+        return inputCheck;
+    }
     if (sock < 0) {
         perror("socket");
         exit(1);
@@ -75,8 +77,8 @@ std::string client(int argc, char **argv){
     }
 
     perror("send");
-    recv(sock, buf, sizeof(buf), 0);
-
+    int recsize = recv(sock, buf, sizeof(buf), 0);
+    buf[recsize] = '\0';
     close(sock);
     return buf;
 }

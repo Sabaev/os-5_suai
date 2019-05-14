@@ -11,23 +11,6 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
-//namespace fs = std::experimental::filesystem;
-
-//const std::string listDir(const fs::path &path) {
-//    if (fs::is_directory(path)) {
-//        std::stringstream stringstream;
-//        for (const auto &entry : fs::directory_iterator(path)) {
-//            stringstream << entry.path() << std::endl;
-//        }
-//        return stringstream.str();
-//    } else {
-//        return "no dir";
-//    }
-//}
-
-//const int countDir(const fs::path &path) {
-//    return std::distance(fs::directory_iterator(path), fs::directory_iterator());
-//}
 
 const std::string osVersion() {
     utsname buf{};
@@ -79,6 +62,7 @@ int main() {
             std::string res = doAction(input);
             std::cerr << "result of execution is: " <<res << std::endl;
 
+            std::cerr << "answer's size is "<< res.size() << std::endl;
             // send result to client
             Socket.sendToClient(add, res.c_str(), res.size());
 

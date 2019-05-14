@@ -1,0 +1,4 @@
+/snap/clion/70/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_CXX_COMPILER=/usr/bin/g++-7 -G "CodeBlocks - Unix Makefiles" /home/funtik/CLionProjects/ot-task4-Sabaev/client/test
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug

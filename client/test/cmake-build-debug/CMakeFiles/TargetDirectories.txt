@@ -1,0 +1,7 @@
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/CMakeFiles/runTests.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/googletest/CMakeFiles/rebuild_cache.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/googletest/CMakeFiles/gtest.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/googletest/CMakeFiles/edit_cache.dir
+/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/cmake-build-debug/googletest/CMakeFiles/gtest_main.dir

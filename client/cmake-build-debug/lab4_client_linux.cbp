@@ -90,6 +90,9 @@
 		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/client/main.cpp">
 			<Option target="lab4_client_linux"/>
 		</Unit>
+		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/client/test/main.cpp">
+			<Option target="lab4_client_linux"/>
+		</Unit>
 		<Unit filename="/home/funtik/CLionProjects/ot-task4-Sabaev/common/UDPSocket.h">
 			<Option target="lab4_client_linux"/>
 		</Unit>

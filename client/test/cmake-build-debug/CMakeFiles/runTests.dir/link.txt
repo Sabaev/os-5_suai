@@ -1,0 +1,1 @@
+/usr/bin/g++-7  -g   CMakeFiles/runTests.dir/main.cpp.o  -o runTests googletest/libgtestd.a googletest/libgtest_maind.a -lpthread googletest/libgtestd.a -pthread 

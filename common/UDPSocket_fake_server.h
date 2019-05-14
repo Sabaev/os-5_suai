@@ -17,6 +17,7 @@
 #include <netinet/in.h>
 #include <zconf.h>
 #include <arpa/inet.h>
+#include <cstring>
 
 class UDPSocket {
 public:
@@ -59,6 +60,8 @@ public:
     void sendToClient(sockaddr_in &address, const char *buffer, int len, int flags = 0) {
         uint addr_size = sizeof(address);
         int ret = sendto(sock, buffer, len, flags, reinterpret_cast<struct sockaddr *>(&address), reinterpret_cast<socklen_t >(addr_size));
+        std::cerr << "ret is " << ret << std::endl;
+        std::cerr << "buffer is " <<buffer << " buffer size is " << strlen(buffer);
         if (ret < 0)
             throw std::system_error(3, std::system_category(), "sendto failed");
     }
