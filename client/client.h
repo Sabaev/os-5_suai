@@ -53,7 +53,7 @@ void sendCommand(const std::string &command, int sock,sockaddr_in serv_addr, con
     }
 }
 
-int client(int argc, char **argv){
+std::string client(int argc, char **argv){
     char buf[MAX_DATA_SIZE];
     int sock;
     struct sockaddr_in serv_addr{};
@@ -76,9 +76,9 @@ int client(int argc, char **argv){
 
     perror("send");
     recv(sock, buf, sizeof(buf), 0);
-    std::cout <<  buf << std::endl;
 
     close(sock);
+    return buf;
 }
 
 #endif //LAB4_CLIENT_LINUX_CLIENT_H
