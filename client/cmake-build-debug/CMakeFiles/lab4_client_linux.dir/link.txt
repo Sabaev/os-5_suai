@@ -1,1 +1,1 @@
-/usr/bin/g++-7  -g   CMakeFiles/lab4_client_linux.dir/main.cpp.o CMakeFiles/lab4_client_linux.dir/test/main.cpp.o  -o lab4_client_linux 
+/usr/bin/g++-7  -g   CMakeFiles/lab4_client_linux.dir/main.cpp.o CMakeFiles/lab4_client_linux.dir/test/main.cpp.o  -o lab4_client_linux -lstd=c++0x 

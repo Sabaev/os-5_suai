@@ -18,16 +18,16 @@ static const std::string count = "count";
 static std::string ls = "ls";
 static std::string os = "os";
 static const int server_port = 8080;
-static const std::string server_ip  = "127.0.0.1";
+static const std::string server_ip = "127.0.0.1";
 
-const std::string checkInput(int argc, char *argv[]) {
+const std::string checkInput(int argc, std::vector<std::string> argv) {
     if (argc == 3) {
-        if (strncmp(argv[1], ls.c_str(), ls.size()) != 0 && strncmp(argv[1], count.c_str(), count.size()) != 0) {
-            return  "invalid command";
+        if (ls != argv[1] && count != argv[1]) {
+            return "invalid command";
 
         }
     } else if (argc == 2) {
-        if (strncmp(argv[1], os.c_str(), os.size()) != 0) {
+        if (argv[1] != os) {
             return "invalid command";
         }
     } else {
@@ -35,16 +35,18 @@ const std::string checkInput(int argc, char *argv[]) {
     }
     return "ok";
 }
+
 bool isValidDataSize(const std::string &data) {
     return data.size() < MAX_DATA_SIZE;
 }
-void sendCommand(const std::string &command, int sock,sockaddr_in serv_addr, const std::string &data = "") {
+
+void sendCommand(const std::string &command, int sock, sockaddr_in serv_addr, const std::string &data = "") {
     if (command == os) {
-        sendto(sock, os.c_str(), os.size(), 0,(struct sockaddr *)&serv_addr, sizeof(serv_addr));
+        sendto(sock, os.c_str(), os.size(), 0, (struct sockaddr *) &serv_addr, sizeof(serv_addr));
     } else {
         if (isValidDataSize(data)) {
             std::string tmp = (command + " " + data);
-            sendto(sock, tmp.c_str(), tmp.size(), 0,(struct sockaddr *)&serv_addr, sizeof(serv_addr));
+            sendto(sock, tmp.c_str(), tmp.size(), 0, (struct sockaddr *) &serv_addr, sizeof(serv_addr));
         } else {
             std::cerr << "too big data, must be smaller than: " + std::to_string(MAX_DATA_SIZE);
             exit(EXIT_FAILURE);
@@ -52,13 +54,13 @@ void sendCommand(const std::string &command, int sock,sockaddr_in serv_addr, con
     }
 }
 
-std::string client(int argc, char **argv){
+std::string client(int argc, std::vector<std::string> argv) {
     char buf[MAX_DATA_SIZE + 1];
     int sock;
     struct sockaddr_in serv_addr{};
     sock = socket(AF_INET, SOCK_DGRAM, 0);
     std::string inputCheck = checkInput(argc, argv);
-    if(inputCheck != "ok"){
+    if (inputCheck != "ok") {
         return inputCheck;
     }
     if (sock < 0) {
@@ -73,7 +75,7 @@ std::string client(int argc, char **argv){
     if (argc == 2) {
         sendCommand(argv[1], sock, serv_addr);
     } else {
-        sendCommand(argv[1], sock,serv_addr, argv[2]);
+        sendCommand(argv[1], sock, serv_addr, argv[2]);
     }
 
     perror("send");

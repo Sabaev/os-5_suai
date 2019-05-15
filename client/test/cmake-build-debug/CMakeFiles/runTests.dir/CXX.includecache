@@ -303,6 +303,8 @@ arpa/inet.h
 -
 
 /home/funtik/CLionProjects/ot-task4-Sabaev/client/test/main.cpp
+cstdarg
+-
 gtest/gtest.h
 /home/funtik/CLionProjects/ot-task4-Sabaev/client/test/gtest/gtest.h
 ../client.h
