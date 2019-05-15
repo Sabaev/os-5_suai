@@ -10,14 +10,14 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - gcc-7.4
-      - g++-7.4
+      - gcc-7
+      - g++-7
 
 
 before install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
 install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-7.4" CC="gcc-7.4"; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-7" CC="gcc-7"; fi
 script:
   - cd fake_server
   - mkdir build
