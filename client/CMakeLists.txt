@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(lab4_client_linux main.cpp ../common/UDPSocket.h client.h test/main.cpp)
 
-target_link_libraries(lab4_client_linux std=c++0x)
+target_link_libraries(lab4_client_linux std=c++14)
