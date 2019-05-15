@@ -5,6 +5,7 @@
 #include "gtest/gtest.h"
 #include "../client.h"
 
+
 std::vector<char *> createArgv(char* arg1, char* arg2 = nullptr, char* arg3 = nullptr){
     std::vector<char*> v = std::vector<char*>();
     v.push_back("test");
@@ -29,7 +30,7 @@ TEST(InvalidArgument,more_then_3){
 
 
 TEST(Connection,estiblishConnection){
-    auto v = createArgv("os");
+    std::vector<char *> v = createArgv("os");
     EXPECT_EQ("super os",client(v.size(),&v[0]));
 }
 
